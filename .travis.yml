@@ -8,5 +8,5 @@ install:
 
 branches:
   only:
-    - master
+    - main
 
