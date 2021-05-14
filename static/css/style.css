@@ -1,0 +1,592 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.page {
+  height: 100%;
+  background-color: white;
+}
+
+.content {
+  height: 200%;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: -webkit-transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1),
+    -webkit-transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+  background-color: #20123a;
+}
+
+.content_inner {
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* basically all styling from now on */
+.menu_toggle {
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  cursor: pointer;
+  width: 100px;
+  height: 80px;
+  background-color: #f37272;
+  border-bottom-right-radius: 100%;
+}
+.menu_toggle:active i {
+  opacity: 0.8;
+}
+.menu_toggle i {
+  color: #f0f0f0;
+}
+.menu_toggle .menu_open,
+.menu_toggle .menu_close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -12px;
+  -webkit-transition: -webkit-transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: -webkit-transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1),
+    -webkit-transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+}
+.menu_toggle .menu_open {
+  -webkit-transform-origin: -100px -100px;
+  transform-origin: -100px -100px;
+}
+.menu_toggle .menu_close {
+  -webkit-transform: rotate(20deg);
+  transform: rotate(20deg);
+  -webkit-transform-origin: -100px -160px;
+  transform-origin: -100px -160px;
+}
+
+.menu_items {
+  position: fixed;
+  bottom: 0;
+  left: 50px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.menu_items li {
+  height: 60px;
+  margin-bottom: 30px;
+  -webkit-transform: translateX(-300px);
+  transform: translateX(-300px);
+  -webkit-transition: -webkit-transform 0.7s 0s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: -webkit-transform 0.7s 0s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: transform 0.7s 0s cubic-bezier(1, 0.005, 0.24, 1);
+  transition: transform 0.7s 0s cubic-bezier(1, 0.005, 0.24, 1),
+    -webkit-transform 0.7s 0s cubic-bezier(1, 0.005, 0.24, 1);
+}
+.menu_items li:nth-child(2) {
+  margin-left: 40px;
+}
+.menu_items li:nth-child(3) {
+  margin-left: 80px;
+}
+.menu_items a {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #f37272;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+.menu_items a .icon {
+  position: relative;
+  display: inline-block;
+  margin-right: 25px;
+  color: #f37272;
+}
+.menu_items a .icon:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin-left: -33px;
+  margin-top: -32px;
+  border-radius: 100%;
+  border: 2px solid black;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+.menu_items a:hover {
+  color: black;
+}
+.menu_items a:hover .icon:after {
+  border-color: black;
+}
+.menu_items a:active .icon {
+  color: black;
+}
+
+/* Let's open up the menu */
+.shazam {
+  /*.content_inner {
+	  height: 100%;
+	}*/
+}
+.shazam .content {
+  -webkit-transform: rotate(-30deg);
+  transform: rotate(-30deg);
+}
+.shazam .menu_open {
+  -webkit-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+.shazam .menu_close {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+.shazam .menu_items li {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: -webkit-transform 0.35s 0.45s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: -webkit-transform 0.35s 0.45s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.35s 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.35s 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    -webkit-transform 0.35s 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.shazam .menu_items li:nth-child(2) {
+  -webkit-transition-delay: 0.47s;
+  transition-delay: 0.47s;
+}
+.shazam .menu_items li:nth-child(3) {
+  -webkit-transition-delay: 0.48s;
+  transition-delay: 0.48s;
+}
+
+h1 {
+  padding-bottom: 15px;
+  font-family: "Fredericka the Great", cursive;
+  letter-spacing: 0.1em;
+  font-size: 59px;
+  text-align: center;
+}
+
+body {
+  color: white;
+}
+
+.github-corner:hover .octo-arm {
+  -webkit-animation: octocat-wave 560ms ease-in-out;
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+@-webkit-keyframes octocat-wave {
+  0%,
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    -webkit-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    -webkit-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    -webkit-animation: none;
+    animation: none;
+  }
+
+  .github-corner .octo-arm {
+    -webkit-animation: octocat-wave 560ms ease-in-out;
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+.title strong {
+  position: relative;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.title strong:after {
+  background-image: url(https://www.mozilla.org/media/protocol/img/zaps/zap-08.fc201d70f76b.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  content: "";
+  display: block;
+  height: 0.3em;
+  left: -0.2em;
+  position: absolute;
+  top: calc(100% - 0.15em);
+  width: calc(100% + 0.4em);
+}
+
+/* Stylish arrow text */
+.arrow-style {
+  box-sizing: border-box;
+  margin: 0.5rem 0 0 3rem;
+  padding-left: 800px;
+  background-image: url(http://uploads.webflow.com/5317d67d660658b254000454/534e23fb94be38d269000057_arrow-left-up.png);
+  background-position: 50% 50%;
+  background-size: 47px;
+  background-repeat: no-repeat;
+  font-family: "Fredericka the Great";
+  color: white;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: 0.7px;
+  opacity: 1;
+  transform: translateX(0px) translateY(0px);
+  transition: opacity 500ms ease 0s,
+    transform 1200ms cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+}
+
+.arrow-style.toggle-opacity,
+.toggle-opacity {
+  opacity: 0;
+}
+
+
+/* For Social Footers */
+.flex-center {
+  align-items: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.icon-3d {
+  padding: 10px;
+  -webkit-animation: icon3d 200ms 10;
+  animation: icon3d 200ms 10;
+  color: #fff;
+  font-size: 2.6em;
+}
+.icon-3d:hover {
+  -webkit-animation: icon3d 200ms infinite;
+  animation: icon3d 200ms infinite;
+}
+
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px #f44336, -5px -6px #2196f3;
+  }
+  25% {
+    text-shadow: -5px -6px #f44336, 5px 4px #2196f3;
+  }
+  50% {
+    text-shadow: 5px -4px #f44336, -8px 4px #2196f3;
+  }
+  75% {
+    text-shadow: -8px -4px #f44336, -5px -4px #2196f3;
+  }
+  100% {
+    text-shadow: -5px 0 #f44336, 5px -4px #2196f3;
+  }
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.btn {
+  width: 50%;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding: 4px 10px 4px;
+  margin-bottom: 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    from(#ffffff),
+    to(#e6e6e6)
+  );
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(top, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #e6e6e6;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border: 1px solid #e6e6e6;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  *margin-left: 0.3em;
+}
+.btn:hover,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  background-color: #e6e6e6;
+}
+.btn-large {
+  width: 50%;
+  padding: 9px 14px;
+  font-size: 15px;
+  line-height: normal;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.btn:hover {
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -ms-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+.btn-primary,
+.btn-primary:hover {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
+.btn-primary.active {
+  color: rgba(255, 255, 255, 0.75);
+}
+.btn-primary {
+  background-color: #4a77d4;
+  background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4);
+  background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4);
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    from(#6eb6de),
+    to(#4a77d4)
+  );
+  background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4);
+  background-image: -o-linear-gradient(top, #6eb6de, #4a77d4);
+  background-image: linear-gradient(top, #6eb6de, #4a77d4);
+  background-repeat: repeat-x;
+  filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);
+  border: 1px solid #3762bc;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.5);
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  filter: none;
+  background-color: #4a77d4;
+}
+.btn-block {
+  width: 100%;
+  display: block;
+}
+
+input {
+  width: 20%;
+  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  outline: none;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2),
+    0 1px 1px rgba(255, 255, 255, 0.2);
+  -webkit-transition: box-shadow 0.5s ease;
+  -moz-transition: box-shadow 0.5s ease;
+  -o-transition: box-shadow 0.5s ease;
+  -ms-transition: box-shadow 0.5s ease;
+  transition: box-shadow 0.5s ease;
+}
+input:focus {
+  box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4),
+    0 1px 1px rgba(255, 255, 255, 0.2);
+}
+.center-block {
+	margin: auto;
+	display: block;
+	margin-bottom: 10px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+.buttons {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+h1 {
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: 900;
+  margin: 0 0 2em;
+}
+@media (min-width: 450px) {
+  h1 {
+    font-size: 1.75em;
+  }
+}
+@media (min-width: 760px) {
+  h1 {
+    font-size: 3.25em;
+  }
+}
+@media (min-width: 900px) {
+  h1 {
+    font-size: 5.25em;
+    margin: 0 0 1em;
+  }
+}
+
+p {
+  color: #fff;
+  font-size: 12px;
+}
+@media (min-width: 600px) {
+  p {
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+    top: 90%;
+  }
+}
+@media (max-height: 500px) {
+  p {
+    left: 0;
+    position: relative;
+    top: 0;
+    transform: translate(0, 0);
+  }
+}
+p a {
+  background: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid;
+  color: #fff;
+  line-height: 1.4;
+  padding: 0.25em;
+  text-decoration: none;
+}
+p a:hover {
+  background: white;
+  color: #E1332D;
+}
+
+.btn {
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 0 0 2em;
+  max-width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .btn {
+    margin: 0 1em 2em;
+  }
+}
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-3 {
+  background: #20123a;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0px 2px 0 #e6e6e6, 2px 4px 6px #e6e6e6;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transition: all 150ms linear;
+}
+
+.btn-3:hover {
+  background: #e6e6e6;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  color: #20123a;
+  text-decoration: none;
+  text-shadow: -1px -1px 0 #20123a;
+  transition: all 250ms linear;
+}
