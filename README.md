@@ -26,6 +26,8 @@
 
 ## Live: https://iris-flower-web.herokuapp.com/
 
+## Note: This app is just for demonstration purpose
+
 ## Local Set-up
 
 * **Linux**
